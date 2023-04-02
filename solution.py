@@ -4,23 +4,13 @@ import numpy as np
 chat_id = 1109095907  # Ваш chat ID, не меняйте название переменной
 
 
-
-# 0.5942192924577453
 def solution(x: np.array) -> float:
     t = 58
-    beta = x.mean()
-    disp = 0
-    for i in range(x.shape[0]):
-        disp += (x[i] - beta) ** 2
-    disp /= x.shape[0] - 1
-    alpha_1 = np.sqrt(2 / disp)
-    acc_1 = 2 * alpha_1 / t ** 2
-    av_2 = 0
-    for i in range(x.shape[0]):
-        av_2 += x[i] ** 2
-    av_2 /= x.shape[0]
-    alpha = np.sqrt(2 / (av_2 - beta ** 2))
-    acc_2 = 2 * alpha / t ** 2
-    return acc_1
+    x_av = x.mean()
+    all = [x[i] ** 2 for i in range(x.shape[0])]
+    qv = sum(all) / x.shape[0]
+    res = (x_av * 2) / t ** 2
+    res = (np.sqrt(qv - 2) * 2) / t ** 2
+    return res
 
 
