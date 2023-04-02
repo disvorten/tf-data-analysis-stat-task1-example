@@ -21,6 +21,6 @@ def solution(x: np.array) -> float:
     av_2 /= x.shape[0]
     alpha = np.sqrt(2 / (av_2 - beta ** 2))
     acc_2 = 2 * alpha / t ** 2
-    return acc_2
+    return acc_1
 
 
